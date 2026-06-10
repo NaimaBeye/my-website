@@ -1,0 +1,45 @@
+:root{
+  --beige: #f6efe6;
+  --white: #ffffff;
+  --pink: #f9d5e5;
+  --accent:#e8b9d1;
+  --text:#2c2c2c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color:var(--text);background:linear-gradient(180deg,var(--beige),var(--white));
+}
+.wrap{max-width:900px;margin:0 auto;padding:3rem 1rem}
+.site-header{background:transparent;padding:1rem 0;position:sticky;top:0}
+.logo{margin:0;font-weight:700;color:#c77b9b}
+.nav{float:right}
+.nav a{margin-left:1rem;color:var(--text);text-decoration:none;font-weight:600}
+.hero{padding:4rem 0;text-align:center}
+.hero .lead{color:#7a6b6b}
+.section{background:rgba(255,255,255,0.7);border-radius:14px;margin:1.25rem 0;padding:1.5rem}
+.about p{font-size:1.05rem;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem}
+.card{display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);background:var(--white);border:1px solid rgba(200,150,170,0.15)}
+.card img{width:100%;height:160px;object-fit:cover;display:block}
+.card-caption{padding:0.75rem 1rem;border-top:1px solid rgba(0,0,0,0.03);font-weight:600}
+.hobbies ul{list-style:disc;margin-left:1.25rem}
+.favorites ul{list-style:none;padding:0;margin:0}
+.favorites li{padding:0.35rem 0}
+.site-footer{padding:1.25rem 0;text-align:center;color:#877676}
+
+@media(min-width:700px){
+  .nav{float:none;display:flex;gap:1rem}
+  .wrap{padding:4rem 1rem}
+}
+
+/* Seashell decorative elements */
+body::before, body::after{
+  content:'🐚';
+  position:fixed;
+  font-size:56px;
+  opacity:0.15;
+  pointer-events:none;
+}
+body::before{left:10px;top:20vh;color:#f9d5e5;transform:rotate(-25deg)}
+body::after{right:10px;bottom:15vh;color:#dbe8f9;transform:rotate(10deg)}
