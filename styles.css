@@ -2,25 +2,77 @@
   --beige: #f6efe6;
   --white: #ffffff;
   --pink: #f9d5e5;
+  --blue: #d8ecff;
+  --yellow: #ffe89a;
   --accent:#e8b9d1;
   --text:#2c2c2c;
 }
 *{box-sizing:border-box}
 body{
-  margin:0;font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  color:var(--text);background:linear-gradient(180deg,var(--beige),var(--white));
+  margin:0;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-size:17px;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 12%, rgba(249,213,229,0.55), transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(216,236,255,0.55), transparent 27%),
+    radial-gradient(circle at 48% 95%, rgba(255,232,154,0.35), transparent 30%),
+    linear-gradient(180deg,var(--beige),var(--white));
+  scroll-behavior:smooth;
 }
-.wrap{max-width:900px;margin:0 auto;padding:3rem 1rem}
-.site-header{background:transparent;padding:1rem 0;position:sticky;top:0}
+.wrap{max-width:760px;margin:0 auto;padding:1.4rem 1rem}
+.site-header{
+  background:rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  padding:0.5rem 0;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:30;
+  border-bottom:1px solid rgba(199,123,155,0.2);
+  transform:translateY(calc(-100% + 18px));
+  opacity:0.6;
+  transition:transform .5s cubic-bezier(.25,.9,.25,1), opacity .4s ease;
+}
+.site-header:hover,
+.site-header:focus-within{
+  transform:translateY(0);
+  opacity:1;
+}
 .logo{margin:0;font-weight:700;color:#c77b9b}
 .nav{float:right}
-.nav a{margin-left:1rem;color:var(--text);text-decoration:none;font-weight:600}
-.hero{padding:4rem 0;text-align:center}
+.nav a{
+  margin-left:1rem;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:600;
+  padding:.3rem .6rem;
+  border-radius:999px;
+  transition:background-color .28s ease, color .28s ease, transform .28s ease;
+}
+.nav a:hover,
+.nav a:focus-visible{
+  background:linear-gradient(90deg, rgba(249,213,229,0.75), rgba(216,236,255,0.85), rgba(255,232,154,0.75));
+  color:#4b2c39;
+  transform:translateY(-1px);
+}
+.hero{padding:4.6rem 0 1.1rem;text-align:center}
+.hero h2{font-size:2.35rem;letter-spacing:.02em;margin:.1rem 0 .35rem}
 .hero .lead{color:#7a6b6b}
-.section{background:rgba(255,255,255,0.7);border-radius:14px;margin:1.25rem 0;padding:1.5rem}
+.section{
+  background:rgba(255,255,255,0.84);
+  border-radius:14px;
+  margin:.85rem 0;
+  padding:1.05rem;
+  border:1px solid rgba(199,123,155,0.16);
+  box-shadow:0 8px 24px rgba(143,105,120,0.08);
+}
 .about p{font-size:1.05rem;line-height:1.6}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem}
-.card{display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);background:var(--white);border:1px solid rgba(200,150,170,0.15)}
+.card{display:block;text-decoration:none;color:inherit;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);background:var(--white);border:1px solid rgba(200,150,170,0.15);transition:transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s ease}
+.card:hover,
+.card:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,0.12)}
 .card img{width:100%;height:160px;object-fit:cover;display:block}
 .card-caption{padding:0.75rem 1rem;border-top:1px solid rgba(0,0,0,0.03);font-weight:600}
 .hobbies ul{list-style:disc;margin-left:1.25rem}
@@ -30,16 +82,37 @@ body{
 
 @media(min-width:700px){
   .nav{float:none;display:flex;gap:1rem}
-  .wrap{padding:4rem 1rem}
+  .wrap{padding:1.7rem 1rem}
+}
+
+@media(max-width:699px){
+  .site-header{
+    transform:translateY(0);
+    opacity:1;
+    position:sticky;
+  }
+  .hero{padding:1.6rem 0 .7rem}
 }
 
 /* Seashell decorative elements */
 body::before, body::after{
-  content:'🐚';
+  content:'';
   position:fixed;
-  font-size:56px;
-  opacity:0.15;
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  opacity:0.35;
   pointer-events:none;
 }
-body::before{left:10px;top:20vh;color:#f9d5e5;transform:rotate(-25deg)}
-body::after{right:10px;bottom:15vh;color:#dbe8f9;transform:rotate(10deg)}
+body::before{
+  left:-40px;
+  top:26vh;
+  background:radial-gradient(circle at 35% 35%, #fff4b7 0%, #f9d5e5 46%, #f2b8d2 100%);
+}
+body::after{
+  right:-30px;
+  bottom:10vh;
+  background:radial-gradient(circle at 40% 40%, #fff7cf 0%, #d8ecff 46%, #b7d6ff 100%);
+}
+
+main{padding-top:2.3rem}
