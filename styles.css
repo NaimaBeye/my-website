@@ -136,19 +136,55 @@ body{
 .section p + p{
   margin-top:.45rem;
 }
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:1rem}
-.card{display:block;text-decoration:none;color:inherit;border-radius:24px 14px 20px 28px / 18px 24px 20px 26px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);background:var(--white);border:1px solid rgba(200,150,170,0.15);transition:transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s ease}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.95rem;margin-top:1rem}
+.card{display:block;text-decoration:none;color:inherit;border-radius:28px 18px 26px 22px / 22px 28px 18px 26px;overflow:hidden;box-shadow:0 8px 22px rgba(141,103,119,0.11);background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(252,244,248,0.92));border:1px solid rgba(200,150,170,0.16);transition:transform .32s cubic-bezier(.2,.8,.2,1), box-shadow .32s ease, filter .32s ease;position:relative;isolation:isolate}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 40%);pointer-events:none;opacity:.9;z-index:0}
 .card:hover,
-.card:focus-visible{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,0.12)}
-.card img{width:100%;height:160px;object-fit:cover;display:block}
-.pin-embed{
+.card:focus-visible{transform:translateY(-4px);box-shadow:0 14px 30px rgba(141,103,119,0.16);filter:saturate(1.02)}
+.hobby-card{padding:0;transform-origin:center bottom}
+.pin-image,
+.goal-image{
   width:100%;
-  height:280px;
-  border:0;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+  position:relative;
+  z-index:1;
+}
+.pin-image{
+  aspect-ratio:4 / 5;
+  filter:saturate(1.04) contrast(1.03) brightness(1.01);
+}
+.goal-image-wrap{
+  margin-top:.9rem;
+  border-radius:28px 20px 30px 22px / 22px 30px 24px 26px;
+  overflow:hidden;
+  border:1px solid rgba(200,150,170,0.18);
+  box-shadow:0 10px 24px rgba(141,103,119,0.12);
+}
+.goal-image{
+  aspect-ratio:16 / 9;
   display:block;
   background:#fef7fb;
+  filter:saturate(1.03) contrast(1.02);
 }
-.card-caption{padding:0.75rem 1rem;border-top:1px solid rgba(0,0,0,0.03);font-weight:600;background:linear-gradient(90deg, rgba(255,243,249,0.95), rgba(220,240,255,0.7))}
+.proud-image-wrap{
+  margin-top:.9rem;
+  border-radius:28px 20px 30px 22px / 22px 30px 24px 26px;
+  overflow:hidden;
+  border:1px solid rgba(200,150,170,0.18);
+  box-shadow:0 10px 24px rgba(141,103,119,0.12);
+}
+.proud-image{
+  width:100%;
+  display:block;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  object-position:center;
+  background:#fef7fb;
+  filter:saturate(1.03) contrast(1.02);
+}
+.card-caption{position:relative;z-index:1;padding:0.62rem .95rem;border-top:1px solid rgba(0,0,0,0.03);font-weight:600;background:linear-gradient(90deg, rgba(255,243,249,0.95), rgba(220,240,255,0.7))}
 .hobbies ul{list-style:none;margin:.5rem 0 0;padding:0}
 .favorites ul{list-style:none;padding:0;margin:0}
 .favorites li{padding:0.35rem 0}
