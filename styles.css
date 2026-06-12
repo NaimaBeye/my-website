@@ -31,9 +31,9 @@ body{
   right:0;
   z-index:30;
   border-bottom:1px solid rgba(199,123,155,0.2);
-  transform:translateY(calc(-100% + 18px));
-  opacity:0.6;
-  transition:transform .5s cubic-bezier(.25,.9,.25,1), opacity .4s ease;
+  transform:translateY(calc(-100% + 10px));
+  opacity:0.52;
+  transition:transform .34s cubic-bezier(.22,1,.36,1), opacity .26s ease;
 }
 .site-header:hover,
 .site-header:focus-within{
