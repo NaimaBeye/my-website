@@ -147,6 +147,51 @@ body{
   aspect-ratio:4 / 5;
   filter:saturate(1.04) contrast(1.03) brightness(1.01);
 }
+.pin-image.bowling-fit{
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:left center;
+  background:#f8eef4;
+}
+.hobby-card.bowling-card{
+  grid-column:span 2;
+}
+
+.star-swarm{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:90;
+}
+
+.star{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:var(--size);
+  height:var(--size);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 10px rgba(255, 245, 252, 0.95);
+  opacity:0;
+  animation:star-swirl 6s ease-out forwards;
+  animation-delay:var(--delay);
+}
+
+@keyframes star-swirl{
+  0%{
+    opacity:0;
+    transform:translate(-50%, -50%) rotate(0deg) translateX(0) translateY(0) scale(0.4);
+  }
+  14%{
+    opacity:0.95;
+  }
+  100%{
+    opacity:0;
+    transform:translate(-50%, -50%) rotate(var(--spin)) translateX(var(--radius)) translateY(var(--drift)) scale(1);
+  }
+}
 .goal-image-wrap{
   margin-top:.9rem;
   max-width:380px;
@@ -206,6 +251,9 @@ body{
 
 @media(max-width:699px){
   .hero{padding:1.6rem 0 .7rem}
+  .hobby-card.bowling-card{
+    grid-column:auto;
+  }
   .proud-layout{
     grid-template-columns:1fr;
   }

@@ -102,8 +102,8 @@
           <p>This section is for my friends and memories together.</p>
           <div class="grid">
             <div class="card hobby-card">
-              <img class="pin-image" src="1000005596.jpg" alt="Naima with two friends on a couch" />
-              <div class="card-caption">Friends Hangout</div>
+              <img class="pin-image" src="1000005300.jpg" alt="Two friends sitting together at a restaurant" />
+              <div class="card-caption">We went to get K-BBQ!</div>
             </div>
             <div class="card hobby-card">
               <img class="pin-image" src="1000006471.jpg" alt="Naima with a friend at night" />
@@ -118,8 +118,12 @@
               <div class="card-caption">Pop Up with Addison!</div>
             </div>
             <div class="card hobby-card">
-              <img class="pin-image" src="1000014633.jpg" alt="Naima with a friend indoors" />
-              <div class="card-caption">Classroom Memory</div>
+              <img class="pin-image" src="1000010738.jpg" alt="Naima and a friend at a colorful snack shop" />
+              <div class="card-caption">My cousin and biggest opp :/</div>
+            </div>
+            <div class="card hobby-card bowling-card">
+              <img class="pin-image bowling-fit" src="1000014994.jpg" alt="Group photo at bowling night" />
+              <div class="card-caption">Bowling Night!</div>
             </div>
           </div>
         </div>
@@ -149,5 +153,28 @@
       <div class="wrap">© Naima Beye</div>
     </footer>
 
+    <script>
+      (() => {
+        const swarm = document.createElement("div");
+        swarm.className = "star-swarm";
+
+        const starCount = 56;
+        for (let i = 0; i < starCount; i += 1) {
+          const star = document.createElement("span");
+          star.className = "star";
+          star.style.setProperty("--radius", `${120 + Math.random() * 520}px`);
+          star.style.setProperty("--spin", `${360 + Math.random() * 900}deg`);
+          star.style.setProperty("--drift", `${-130 + Math.random() * 260}px`);
+          star.style.setProperty("--delay", `${Math.random() * 1.2}s`);
+          star.style.setProperty("--size", `${1 + Math.random() * 3}px`);
+          swarm.appendChild(star);
+        }
+
+        document.body.appendChild(swarm);
+        setTimeout(() => {
+          swarm.remove();
+        }, 7000);
+      })();
+    </script>
   </body>
 </html>
