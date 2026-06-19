@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div class="ticker-bar" aria-label="Site message ticker">
+      <div class="ticker-track">
+        <span>This site is about your friend Naima! She made this during a STEM camp program :)</span>
+        <span>This site is about your friend Naima! She made this during a STEM camp program :)</span>
+      </div>
+    </div>
+
     <header class="site-header">
       <div class="wrap">
         <h1 class="logo">Naima's Corner</h1>
@@ -27,6 +34,21 @@
         <div class="wrap">
           <h2>Chill Cozy Vibes</h2>
           <p class="lead">Naima's corner of the internet, a small pond in a large ocean...</p>
+          <div class="vibe-box">
+            <div class="vibe-stats" aria-live="polite">
+              <p id="vibe-score" class="vibe-stat">Score: 0</p>
+              <p id="vibe-streak" class="vibe-stat">Streak: 0</p>
+              <p id="vibe-high" class="vibe-stat">High Score: 0</p>
+              <p id="vibe-timer" class="vibe-stat">Time: 20</p>
+            </div>
+            <div class="vibe-actions">
+              <button id="vibe-btn" type="button">New Challenge</button>
+              <button id="vibe-done-btn" type="button">Completed +1</button>
+              <button id="vibe-skip-btn" type="button">Skip (2 left)</button>
+            </div>
+            <p id="vibe-result" class="vibe-result" aria-live="polite">Complete the challenge, then tap Completed +1.</p>
+            <p id="vibe-flash" class="vibe-flash" aria-live="polite"></p>
+          </div>
         </div>
       </section>
 
@@ -60,6 +82,14 @@
               <div class="card-caption">Reading</div>
             </div>
             <div class="card hobby-card">
+              <img class="pin-image" src="word search.jpg" alt="Word search puzzle book" />
+              <div class="card-caption">Puzzles</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="989525349359337028.jpg" alt="Watching a show at home" />
+              <div class="card-caption">Watching Shows</div>
+            </div>
+            <div class="card hobby-card">
               <img class="pin-image" src="https://i.pinimg.com/736x/a8/7a/ec/a87aec5153207291908eb7a1aeab7987.jpg" alt="Doing Makeup" />
               <div class="card-caption">Doing Makeup</div>
             </div>
@@ -71,7 +101,7 @@
         <div class="wrap">
           <h3>Goals🩷</h3>
           <p>My goal is to graduate with an associates degree along with my high school diploma by the end of senior year!</p>
-          <div class="goal-image-wrap">
+          <div class="goal-image-wrap card hobby-card">
             <img class="goal-image" src="https://i.pinimg.com/736x/87/1f/9e/871f9e47bf287b29beb0229220b56703.jpg" alt="Goals inspiration" />
           </div>
         </div>
@@ -128,7 +158,7 @@
               <div class="card-caption">My cousin and biggest opp :/</div>
             </div>
             <div class="card hobby-card bowling-card">
-              <img class="pin-image bowling-fit" src="images/1000014994.jpg" alt="Group photo at bowling night" />
+              <img class="pin-image bowling-fit" src="1000014994.jpg" alt="Group selfie at bowling night" />
               <div class="card-caption">Bowling Night!</div>
             </div>
           </div>
@@ -138,10 +168,20 @@
       <section id="favorites" class="section favorites">
         <div class="wrap">
           <h3>Favourites🍓</h3>
-          <ul>
-            <li><strong>Music:</strong> Indie / Kpop / Rap</li>
-            <li><strong>Movies:</strong></li>
-          </ul>
+          <div class="grid">
+            <div class="card hobby-card">
+              <img class="pin-image" src="Screenshot 2026-06-19 141132.png" alt="Indie and alt music collage" />
+              <div class="card-caption">Indie / Alt</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="1058627456179990727 (1).jpg" alt="K-pop music collage" />
+              <div class="card-caption">K-pop</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="489625790757965148.jpg" alt="R&B and rap music collage" />
+              <div class="card-caption">Rap / R&B</div>
+            </div>
+          </div>
           <div class="grid">
             <div class="card hobby-card">
               <img class="pin-image" src="coraline.jpg" alt="Coraline movie still" />
@@ -156,9 +196,6 @@
               <div class="card-caption">The Parent Trap</div>
             </div>
           </div>
-          <ul>
-            <li><strong>Food:</strong></li>
-          </ul>
           <div class="grid">
             <div class="card hobby-card">
               <img class="pin-image" src="download (16).jpg" alt="Pasta dish in a skillet" />
@@ -167,6 +204,10 @@
             <div class="card hobby-card">
               <img class="pin-image" src="ೃ⁀➷.jpg" alt="Slice of cheesecake with caramel topping" />
               <div class="card-caption">Cheesecake</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="download (17).jpg" alt="Pan-fried dumplings on a plate" />
+              <div class="card-caption">Dumplings</div>
             </div>
           </div>
         </div>
@@ -184,6 +225,13 @@
     <footer class="site-footer">
       <div class="wrap">© Naima Beye</div>
     </footer>
+
+    <div class="ticker-bar ticker-bar-bottom" aria-label="Site message ticker">
+      <div class="ticker-track">
+        <span>This site is about your friend Naima! She made this during a STEM camp program :)</span>
+        <span>This site is about your friend Naima! She made this during a STEM camp program :)</span>
+      </div>
+    </div>
 
     <script>
       (() => {
@@ -234,6 +282,267 @@
             });
           });
         });
+      })();
+
+      (() => {
+        const cards = document.querySelectorAll(".card.hobby-card");
+        const finePointer = window.matchMedia("(pointer: fine)").matches;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!finePointer || reducedMotion) {
+          return;
+        }
+
+        cards.forEach((card) => {
+          card.addEventListener("pointermove", (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width;
+            const y = (event.clientY - rect.top) / rect.height;
+            const rotateY = (x - 0.5) * 11;
+            const rotateX = (0.5 - y) * 11;
+
+            card.classList.add("is-tilting");
+            card.style.setProperty("--rx", `${rotateX}deg`);
+            card.style.setProperty("--ry", `${rotateY}deg`);
+          });
+
+          card.addEventListener("pointerleave", () => {
+            card.classList.remove("is-tilting");
+            card.style.setProperty("--rx", "0deg");
+            card.style.setProperty("--ry", "0deg");
+          });
+        });
+      })();
+
+      (() => {
+        const burstTargets = document.querySelectorAll(".pin-image, .goal-image");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (reducedMotion) {
+          return;
+        }
+
+        const glyphs = ["✦", "✧", "★", "✶"];
+
+        const spawnSparkles = (x, y) => {
+          for (let i = 0; i < 9; i += 1) {
+            const sparkle = document.createElement("span");
+            sparkle.className = "sparkle-pop";
+            sparkle.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            sparkle.style.setProperty("--dx", `${(Math.random() - 0.5) * 80}px`);
+            sparkle.style.setProperty("--dy", `${(Math.random() - 0.5) * 80}px`);
+            sparkle.style.color = Math.random() > 0.5 ? "#ffd36e" : "#ffb7d9";
+            document.body.appendChild(sparkle);
+            setTimeout(() => {
+              sparkle.remove();
+            }, 760);
+          }
+        };
+
+        burstTargets.forEach((target) => {
+          target.addEventListener("click", (event) => {
+            spawnSparkles(event.clientX, event.clientY);
+          });
+        });
+      })();
+
+      (() => {
+        const vibeBtn = document.getElementById("vibe-btn");
+        const vibeDoneBtn = document.getElementById("vibe-done-btn");
+        const vibeSkipBtn = document.getElementById("vibe-skip-btn");
+        const vibeScore = document.getElementById("vibe-score");
+        const vibeStreak = document.getElementById("vibe-streak");
+        const vibeHigh = document.getElementById("vibe-high");
+        const vibeTimer = document.getElementById("vibe-timer");
+        const vibeResult = document.getElementById("vibe-result");
+        const vibeFlash = document.getElementById("vibe-flash");
+
+        if (!vibeBtn || !vibeDoneBtn || !vibeSkipBtn || !vibeScore || !vibeStreak || !vibeHigh || !vibeTimer || !vibeResult || !vibeFlash) {
+          return;
+        }
+
+        const vibes = [
+          "Count 6 hobby cards in Hobbies.",
+          "Find 3 food cards in Favourites.",
+          "Count 3 movie cards in Favourites.",
+          "Count 3 music collage cards.",
+          "Find 2 moving ticker bars (top and bottom).",
+          "Use nav to visit 3 different sections.",
+          "Find 4 photos in Something I am Proud of.",
+          "Find 6 photos in Friends.",
+          "Find 1 Paris photo in About me.",
+          "Find 1 Goals image in Goals section.",
+          "Trigger sparkle effect on 3 different images.",
+          "Count 7 links in the top nav.",
+          "Find 2 photos that include more than 3 people.",
+          "Find 3 sections with pink title pills.",
+          "Count total cards in Favourites.",
+          "Find 1 bowling photo and 1 cousin photo.",
+          "Visit About, Friends, and Contact in this order.",
+          "Find 3 food captions and read them out loud.",
+          "Count 3 stats in the challenge box.",
+          "Find 1 email address and 1 Instagram handle.",
+          "Count 2 special effects: card tilt and click sparkles.",
+          "Count 5 friend-memory captions.",
+          "Find 3 cards with captions in ALL CAPS or mostly caps.",
+          "Count 3 sections before Friends while scrolling.",
+          "Find 2 pink side rails decorating the page.",
+          "Find 4 sections that contain image grids.",
+          "Count all buttons in the challenge box.",
+          "Find 2 collage cards and 2 personal photo cards.",
+          "Use one skip, then complete 1 challenge.",
+          "Find both moving ticker bars and watch one full pass."
+        ];
+
+        const bonusTimeSeconds = 20;
+        const storageKey = "naima-vibe-high-score";
+        let previousIndex = -1;
+        let score = 0;
+        let streak = 0;
+        let skipsLeft = 2;
+        let secondsLeft = bonusTimeSeconds;
+        let timerId;
+        let highScore = 0;
+
+        try {
+          const saved = Number(window.localStorage.getItem(storageKey));
+          if (Number.isFinite(saved) && saved > 0) {
+            highScore = saved;
+          }
+        } catch {
+          highScore = 0;
+        }
+
+        const popText = (el, className) => {
+          el.classList.remove(className);
+          void el.offsetWidth;
+          el.classList.add(className);
+        };
+
+        const updateStats = () => {
+          vibeScore.textContent = `Score: ${score}`;
+          vibeStreak.textContent = `Streak: ${streak}`;
+          vibeHigh.textContent = `High Score: ${highScore}`;
+          vibeTimer.textContent = `Time: ${secondsLeft}`;
+          vibeSkipBtn.textContent = `Skip (${skipsLeft} left)`;
+          vibeSkipBtn.disabled = skipsLeft <= 0;
+        };
+
+        const startTimer = () => {
+          if (timerId) {
+            window.clearInterval(timerId);
+          }
+
+          secondsLeft = bonusTimeSeconds;
+          updateStats();
+          timerId = window.setInterval(() => {
+            secondsLeft -= 1;
+            if (secondsLeft <= 0) {
+              secondsLeft = 0;
+              window.clearInterval(timerId);
+              timerId = undefined;
+              streak = 0;
+              vibeFlash.textContent = "Time up - no point. New challenge loaded.";
+              popText(vibeFlash, "vibe-flash-pop");
+              updateStats();
+              setChallenge();
+              return;
+            }
+
+            updateStats();
+          }, 1000);
+        };
+
+        const completeChallenge = () => {
+          score += 1;
+          streak += 1;
+
+          if (score > highScore) {
+            highScore = score;
+            try {
+              window.localStorage.setItem(storageKey, String(highScore));
+            } catch {
+              // Ignore localStorage errors and keep gameplay uninterrupted.
+            }
+          }
+
+          popText(vibeScore, "vibe-score-pop");
+          popText(vibeStreak, "vibe-score-pop");
+          popText(vibeHigh, "vibe-score-pop");
+          vibeFlash.textContent = "+1 point!";
+          popText(vibeFlash, "vibe-flash-pop");
+          updateStats();
+          setChallenge();
+        };
+
+        const setChallenge = () => {
+          let nextIndex = Math.floor(Math.random() * vibes.length);
+
+          if (vibes.length > 1 && nextIndex === previousIndex) {
+            nextIndex = (nextIndex + 1) % vibes.length;
+          }
+
+          previousIndex = nextIndex;
+          vibeResult.textContent = vibes[nextIndex];
+          popText(vibeResult, "vibe-result-pop");
+          startTimer();
+        };
+
+        vibeBtn.addEventListener("click", setChallenge);
+
+        vibeDoneBtn.addEventListener("click", () => {
+          if (previousIndex === -1) {
+            setChallenge();
+            return;
+          }
+
+          completeChallenge();
+        });
+
+        vibeSkipBtn.addEventListener("click", () => {
+          if (skipsLeft <= 0) {
+            return;
+          }
+
+          skipsLeft -= 1;
+          streak = 0;
+          vibeFlash.textContent = "Challenge skipped. No point awarded.";
+          popText(vibeFlash, "vibe-flash-pop");
+          updateStats();
+          setChallenge();
+        });
+
+        updateStats();
+        setChallenge();
+      })();
+
+      (() => {
+        const overlay = document.createElement("div");
+        overlay.className = "naima-popup-overlay";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-modal", "true");
+        overlay.innerHTML = `
+          <div class="naima-popup">
+            <h4>Do u want Naima to be able to know you opened this site? YES OR YES</h4>
+            <p class="naima-popup-note">She can see it anyway 🤷🏾‍♀️</p>
+            <div class="naima-popup-actions">
+              <button type="button">YES</button>
+              <button type="button">YES</button>
+            </div>
+          </div>
+        `;
+
+        const closePopup = () => {
+          overlay.remove();
+        };
+
+        overlay.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", closePopup);
+        });
+
+        document.body.appendChild(overlay);
       })();
     </script>
   </body>
