@@ -34,6 +34,12 @@
         <div class="wrap">
           <h3>About me🌸</h3>
           <p>My name is Naima Beye. I'm 15 years old and an Aquarius. My favourite color is pink and i love gold. I am an incoming sophmore and in marching band.</p>
+          <div class="about-photo-wrap">
+            <figure class="card hobby-card about-photo-card" tabindex="0">
+              <img class="pin-image about-photo-image" src="images/1000008421.jpg" alt="Naima posing in Paris at night near the Arc de Triomphe" />
+              <figcaption class="card-caption">Went to Paris for the 20th time..</figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -64,7 +70,7 @@
       <section id="goals" class="section goals">
         <div class="wrap">
           <h3>Goals🩷</h3>
-          <p>My goal is to graduate with an associates degree along with my high school diploma!</p>
+          <p>My goal is to graduate with an associates degree along with my high school diploma by the end of senior year!</p>
           <div class="goal-image-wrap">
             <img class="goal-image" src="https://i.pinimg.com/736x/87/1f/9e/871f9e47bf287b29beb0229220b56703.jpg" alt="Goals inspiration" />
           </div>
@@ -74,7 +80,7 @@
       <section id="achievements" class="section achievements">
         <div class="wrap">
           <h3>Something I am Proud of🌷</h3>
-          <p>We got all 1's at UIL, which is something im very proud of for my frist year of marching band. I played baritone during the season!</p>
+          <p>We got all 1's at UIL, which is something im very proud of for my first year of marching band. I played baritone during the season!</p>
           <div class="grid">
             <div class="card hobby-card">
               <img class="pin-image" src="images/1000005281.jpg" alt="Band group celebrating with congratulation balloons" />
@@ -134,9 +140,35 @@
           <h3>Favourites🍓</h3>
           <ul>
             <li><strong>Music:</strong> Indie / Kpop / Rap</li>
-            <li><strong>Movies:</strong> Coraline, The Black Phone, and Incantation</li>
-            <li><strong>Food:</strong> Pasta and Cheesecake</li>
+            <li><strong>Movies:</strong></li>
           </ul>
+          <div class="grid">
+            <div class="card hobby-card">
+              <img class="pin-image" src="coraline.jpg" alt="Coraline movie still" />
+              <div class="card-caption">Coraline</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="But im a cheerleader!.jpg" alt="But Im A Cheerleader movie still" />
+              <div class="card-caption">But Im A Cheerleader</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="Annie and Hallie.jpg" alt="The Parent Trap movie still" />
+              <div class="card-caption">The Parent Trap</div>
+            </div>
+          </div>
+          <ul>
+            <li><strong>Food:</strong></li>
+          </ul>
+          <div class="grid">
+            <div class="card hobby-card">
+              <img class="pin-image" src="download (16).jpg" alt="Pasta dish in a skillet" />
+              <div class="card-caption">Pasta</div>
+            </div>
+            <div class="card hobby-card">
+              <img class="pin-image" src="ೃ⁀➷.jpg" alt="Slice of cheesecake with caramel topping" />
+              <div class="card-caption">Cheesecake</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -174,6 +206,34 @@
         setTimeout(() => {
           swarm.remove();
         }, 7000);
+      })();
+
+      (() => {
+        const header = document.querySelector(".site-header");
+        const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
+            if (!targetId) {
+              return;
+            }
+
+            const target = document.querySelector(targetId);
+            if (!target) {
+              return;
+            }
+
+            event.preventDefault();
+            const headerOffset = header ? header.offsetHeight + 10 : 0;
+            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth"
+            });
+          });
+        });
       })();
     </script>
   </body>

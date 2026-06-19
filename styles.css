@@ -117,6 +117,39 @@ body{
   bottom:-.25rem;
 }
 .about p{font-size:1.05rem;line-height:1.6}
+.about-photo-wrap{
+  margin-top:1rem;
+  width:100%;
+  max-width:360px;
+}
+.about-photo-card{
+  margin:0;
+}
+.about-photo-image{
+  aspect-ratio:3 / 4;
+  object-position:center top;
+  transition:filter .28s ease;
+}
+.about-photo-card .card-caption{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  border-top:none;
+  text-align:center;
+  color:#fff;
+  background:linear-gradient(180deg, rgba(25, 20, 28, 0), rgba(25, 20, 28, 0.84));
+  transform:translateY(100%);
+  transition:transform .28s ease;
+}
+.about-photo-card:hover .card-caption,
+.about-photo-card:focus-visible .card-caption{
+  transform:translateY(0);
+}
+.about-photo-card:hover .about-photo-image,
+.about-photo-card:focus-visible .about-photo-image{
+  filter:brightness(0.9) saturate(1.05);
+}
 .section p,
 .section li{
   background:linear-gradient(120deg, rgba(255, 242, 247, 0.9), rgba(245, 236, 254, 0.55));
@@ -249,10 +282,16 @@ body{
 @media(min-width:700px){
   .nav{float:none;display:flex;gap:1rem}
   .wrap{padding:1.7rem 1rem}
+  .about-photo-wrap{
+    max-width:460px;
+  }
 }
 
 @media(max-width:699px){
   .hero{padding:1.6rem 0 .7rem}
+  .about-photo-wrap{
+    max-width:none;
+  }
   .hobby-card.bowling-card{
     grid-column:auto;
   }
